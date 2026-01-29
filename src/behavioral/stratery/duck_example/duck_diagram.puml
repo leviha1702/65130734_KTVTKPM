@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+
+abstract class Duck{
+    + void performQuack()
+    + void performFly()
+    + void swim()
+    + {abstract} void display()
+    + void setFlyBehavior(IFlyBehavior f)
+    + void setQuackBehavior(IQuackBehavior q)
+}
+interface IFlyBehavior{
+    + String fly()
+}
+interface IQuackBehavior{
+    + String quack()
+}
+class FlyWithWings
+class FlyNoWay
+class Quack
+class SQuack
+class VitGioi
+
+Duck --> IFlyBehavior:flybehavior
+Duck --> IQuackBehavior:quackbehavior
+IFlyBehavior <|..FlyWithWings
+IFlyBehavior <|..FlyNoWay
+IQuackBehavior<|..Quack
+IQuackBehavior<|..SQuack
+Duck <|--VitGioi
+@enduml
