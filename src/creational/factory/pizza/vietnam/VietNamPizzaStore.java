@@ -11,6 +11,10 @@ public class VietNamPizzaStore extends PizzaStore {
         switch (type) {
             case HAISAN:
                 return new VietNamHaiSanPizza();
+            case BO:
+                return new VietNamBoPizza();
+            case PHOMAI:
+                return new VietNamPhoMaiPizza();
             default:
                 return null;
         }
