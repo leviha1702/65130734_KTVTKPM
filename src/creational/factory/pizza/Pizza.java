@@ -1,0 +1,16 @@
+package creational.factory.pizza;
+
+public abstract class Pizza {
+    StringBuilder builder = new StringBuilder();
+    public abstract void prepare();
+    public abstract void bake();
+    public abstract void cut();
+    public abstract void box();
+
+    public String toString(){
+        return builder.toString();
+    }
+    public StringBuilder getBuilder() {
+        return builder;
+    }
+}
