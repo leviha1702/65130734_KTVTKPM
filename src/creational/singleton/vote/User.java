@@ -6,6 +6,6 @@ public class User {
         this.id = id;
     }
     public void vote (Candidate c){
-        Election.getInstance().vote(c);
+        Election.getInstance().vote(c,this.id);
     }
 }

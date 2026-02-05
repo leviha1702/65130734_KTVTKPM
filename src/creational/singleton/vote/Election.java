@@ -1,6 +1,10 @@
 package creational.singleton.vote;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Election {
+    List<String> voteUser = new ArrayList<>();
     private static Election instance;
     int trump=0;
     int biden=0;
@@ -13,7 +17,11 @@ public class Election {
         }
         return instance;
     }
-    public void vote (Candidate c){
+    public void vote (Candidate c,String id){
+        for(var user: voteUser)
+            if(user.equals(id))
+                return;
+        voteUser.add(id);
         if (c == Candidate.TRUMP){
             trump++;
         }
