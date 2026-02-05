@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class SanPham{
+    -String inDS, ten;
+    Int sl;
+
+}
+class DataAccess{
+    -{static} DataAccess instance
+    -DataAccess()
+    + {static} DataAccess getInstance
+    + void add(SanPham s)
+    + void inDS()
+
+}
+DataAccess *-->SanPham:sps
+@enduml
