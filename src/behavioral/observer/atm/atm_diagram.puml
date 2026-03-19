@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ATM{
+    + void nhanThe(ATMListener tk)
+    + void traThe()
+    + void rutTien(int soTien)
+}
+interface ATMListener{
+    boolean kiemTraSoDu(int soTien)
+    void nhanThongBao (int soTien,boolean thanhCong)
+}
+class TaiKhoan{
+    String ten
+    int soDu
+}
+
+TaiKhoan -> ATM:atm
+TaiKhoan .|>ATMListener
+ATM *-->ATMListener:taikhoan
+@enduml
