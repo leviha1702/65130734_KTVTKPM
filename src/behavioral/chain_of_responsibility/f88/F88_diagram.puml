@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class ChuTich
+class NhanVienChoVay
+abstract class NV_DuyetVay{
+    String ten, chucVu
+    int hanMuc
+    + DuyetVay capTren(NV_DuyetVay capTren)
+    + void duyetVay(int soTien)
+}
+
+NV_DuyetVay<|--ChuTich
+NV_DuyetVay<|--NhanVienChoVay
+NhanVienChoVay-->NV_DuyetVay:capTren
+
+@enduml
