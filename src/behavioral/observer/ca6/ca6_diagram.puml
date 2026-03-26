@@ -1,0 +1,37 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Subject {
+    +void registerObserver(Observer o)
+    +void removeObserver(Observer o)
+    +void notifyObservers()
+}
+interface Observer{
+    +void update(int thoiGian, int countdown, int grade)
+}
+class PlayerData{
+    -List<Observer> observers
+    - int thoiGian
+    - int countdown
+    - int grade
+    +void registerObserver(Observer o)
+    +void removeObserver(Observer o)
+    +void notifyObservers()
+    +void setGameData(int thoiGian, int countdown, int grade)
+    +void setThoiGian(int thoiGian)
+    +void setCountDown(int countdown)
+    +void setGrade(int grade)
+}
+
+class Dashboard{
+    -int thoiGian
+    -int countdown
+    -int grade
+    + void update(int thoiGian, int countdown, int grade)
+    + void display()
+}
+Subject <|.. PlayerData
+Observer <|.. Dashboard
+PlayerData --> Observer
+Dashboard ..> PlayerData
+@enduml

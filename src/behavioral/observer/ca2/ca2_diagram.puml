@@ -1,7 +1,6 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-autonumber
 interface Subject{
     +void attach(ButtonClickListener listerner)
     +void detach(ButtonClickListener listerner)
