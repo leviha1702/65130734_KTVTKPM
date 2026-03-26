@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+interface Subject{
+    +void attach(ButtonClickListener listerner)
+    +void detach(ButtonClickListener listerner)
+    +void notifyListeners()
+}
+interface ButtonClickListener {
+    +void onClick(int clickCount)
+}
+class Button{
+    - List<ButtonClickListener> listeners
+    - int clickCount
+    +void attach(ButtonClickListener listerner)
+    +void detach(ButtonClickListener listerner)
+    +void notifyListeners()
+    + void click()
+}
+class Activity{
+    - String activityName
+    + Activity (String name)
+    + void onClick(int clickCount)
+}
+Subject <|..Button
+ButtonClickListener<|..Activity
+Button -->ButtonClickListener
+Activity ..>Button
+@enduml
