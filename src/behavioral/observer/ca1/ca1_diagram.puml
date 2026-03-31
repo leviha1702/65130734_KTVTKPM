@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Subject{
+    +void addObserver(Observer o)
+    +void removeObserver(Observer o)
+    + void notifyObservers(List<MonHoc>danhSach)
+}
+
+interface Observer{
+    + void update(List<MonHoc>danhSach)
+}
+class Stream{
+    - List<Observer>notifyObservers
+    +void addObserver(Observer o)
+    +void removeObserver(Observer o)
+    + void notifyObservers(List<MonHoc>danhSach)
+    + void addEvent(List<MonHoc>danhSach)
+}
+class Client{
+    +void update(List<MonHoc>danhSach)
+}
+class MonHoc{
+    - String maMon
+    - String tenMon
+    + String getMaMon()
+    + void setTenMon(String tenMon)
+    + String toString()
+}
+class DataAccsess{
+    - List<MonHoc>danhSachMonHoc
+    -Stream stream
+    +Stream getStream()
+    + void themMonHoc(MonHoc mh)
+    + void capNhatMonHoc(String maMon,String tenMonHoc)
+    + void xoaMonHoc(String maMon)
+}
+
+Subject <|.. Stream
+Observer <|..Client
+Stream --> Observer
+DataAccsess -->Stream
+DataAccsess -->MonHoc
+Client ..>MonHoc: hien thi
+@enduml
