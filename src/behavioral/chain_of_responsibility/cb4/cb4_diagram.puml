@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class PrizeChecker{
+    # PrizeChecker nextChecker
+    + PrizeChecker setNextChecker(PrizeChecker nextChecker)
+    + {abstract} void checkTicket(String ticketNumber)
+
+}
+class StandardPrizeChecker{
+    -String prizeName
+    -String[] winningNumber
+    + StandardPrizeChecker (String prizeName,String[] winningNumbers)
+    +void checkTicket(String (String ticketNumber)
+}
+class ConsolationPrizeChecker{
+    -String specialPrizeChecker
+    + ConsolationPrizeChecker(String specialPrizeChecker)
+    + void checkTicket (String ticketNumber)
+}
+class Client{}
+PrizeChecker<|--StandardPrizeChecker
+PrizeChecker<|--ConsolationPrizeChecker
+PrizeChecker-->PrizeChecker:nextChecker
+Client..>PrizeChecker
+
+@enduml
