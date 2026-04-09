@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+abstract class ElectricityCalculator{
+    # ElectricityCalculator nextCalculator
+    + ElectricityCalculator setNexCalculator( ElectricityCalculator nextCalculator)
+    +(abstract) double calculateBill (int kwh)
+}
+class TierCalculator{
+    -String tierName
+    -int capacity
+    - double price
+    + TierCalculator(String tierName, int capacity, double price)
+    + double calculateBill(int kwh)
+}
+class Client()
+ElectricityCalculator<|--TierCalculator
+ElectricityCalculator-->TierCalculator
+@enduml
