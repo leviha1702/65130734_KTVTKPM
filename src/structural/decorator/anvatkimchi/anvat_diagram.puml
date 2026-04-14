@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Product {
+    double totalPrice()
+    String showProduct()
+}
+class ProductBasic {
+    -String tenSP,moTa
+    -double price
+    +ProductBasic(String tenSP,String moTa,double price)
+}
+class ProductDecorator
+
+class AddTopping {
+
+}
+class AddSot {}
+
+class dongGoi {}
+class giamGia {}
+
+Product <|.. ProductBasic
+Product <|.. ProductDecorator
+Product<-- ProductDecorator
+ProductDecorator<|-- AddTopping
+ProductDecorator<|-- AddSot
+ProductDecorator<|-- dongGoi
+ProductDecorator<|-- giamGia
+@enduml

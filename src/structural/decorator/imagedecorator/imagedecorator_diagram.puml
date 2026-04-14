@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Image{
+    String ShowImage()
+}
+
+class BasicImage{
+    -String tenAnh
+    +BasicImage(String tenAnh)
+}
+
+class ImageDecorator{
+
+}
+
+class BorderDecorator {
+    
+}
+
+class WatermarkDecorator{}
+
+class FilterDecorator{}
+
+ImageDecorator <|-- BorderDecorator
+ImageDecorator <|-- WatermarkDecorator
+ImageDecorator <|-- FilterDecorator
+BasicImage ..|> Image
+ImageDecorator ..|>Image
+ImageDecorator -->Image
+@enduml
