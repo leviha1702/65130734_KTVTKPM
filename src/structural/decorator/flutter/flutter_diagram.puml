@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface Widget {
+    String showText()
+    String showButton()
+}
+
+class WidgetBasic {
+    -String text,button
+    +WidgetBasic(String text,String button)
+}
+
+class WidgetDecorator {}
+
+class Center {}
+
+class Container {
+}
+
+class Row {}
+
+class Column {}
+
+Widget<|.. WidgetBasic
+Widget<|.. WidgetDecorator
+WidgetDecorator<|-- Center
+WidgetDecorator<|-- Container
+WidgetDecorator<|-- Row
+WidgetDecorator<|-- Column
+WidgetDecorator-->Widget
+@enduml

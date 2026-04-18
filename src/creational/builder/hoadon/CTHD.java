@@ -3,7 +3,7 @@ package creational.builder.hoadon;
 public class CTHD {
     private String tenSP;
     private int soLuong,donGia;
-    float ck;
+    private float ck;
     public CTHD(String tenSP,int soLuong,int donGia,float ck){
         this.tenSP=tenSP;
         this.soLuong=soLuong;

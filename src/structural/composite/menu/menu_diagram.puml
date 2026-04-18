@@ -2,13 +2,25 @@
 'https://plantuml.com/sequence-diagram
 
 interface MenuComponent {
-    +void showMenu()
-    +double getPrice()
+    void showItem()
+    double getPrice()
 }
 
-class Disk {}
+class Disk {
+    -String nameDisk
+    -double price
+    +Disk(String name,float price)
+    +void showItem()
+    +float getPrice()
+}
 
 class Combo {
+    -String nameCombo
+    -List<MenuComponent> children
+    +void add(MenuComponent menu)
+    +void remove(MenuComponent menu)
+    +void showItem()
+    +float getPrice()
 
 }
 
