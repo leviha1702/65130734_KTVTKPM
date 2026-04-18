@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+interface MenuComponent {
+    +void showMenu()
+    +double getPrice()
+}
+
+class Disk {}
+
+class Combo {
+
+}
+
+MenuComponent<|.. Disk
+MenuComponent<|.. Combo
+@enduml

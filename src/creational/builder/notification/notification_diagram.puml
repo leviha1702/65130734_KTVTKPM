@@ -3,12 +3,17 @@
 
 class Notification {
     -String title,message,icon,sound,priority,actionButtons
-
-
+    -Notification(build b)
 }
 class NotificationBuilder {
     -String title,message,icon,sound,priority,actionButtons
-    +Build ti
+    +Build buildTitle(String title)
+    +Build buildMessage (String message)
+    +Build buildIcon( String icon)
+    +Build buildSound(String sound)
+    +Build buildPriority(String priority)
+    +Build buildActionButtons(String actionButtons)
+    +Notification build ()
 }
 
 NotificationBuilder..>Notification
