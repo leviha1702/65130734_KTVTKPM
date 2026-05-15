@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Calculator {
+    - int input1, input2
+    + void setState (CalculatorState state)
+    + boolean operate()
+}
+
+interface CalculatorState {
+    + boolean operateHandle(Calculator calculator)
+}
+
+class InputState1 {
+    + boolean operateHandle(Calculator calculator)
+}
+
+class InputState2 {
+    + boolean operateHandle(Calculator calculator)
+}
+
+class InputOperationState {
+   + boolean operateHandle(Calculator calculator)
+}
+
+class OperateState {
+    + boolean operateHandle(Calculator calculator)
+}
+
+Calculator --> CalculatorState:state
+CalculatorState<|.. InputState1
+CalculatorState<|.. InputState2
+CalculatorState<|.. InputOperationState
+CalculatorState<|.. OperateState
+
+@enduml
